@@ -1,0 +1,15 @@
+{
+  "namespace": "com.mycorp.finance.banking.account.infrastructure.messaging.schema",
+  "type": "record",
+  "name": "AccountDeletedEvent",
+  "doc": "Event published when a bank account is deleted.",
+  "fields": [
+    {"name": "accountId", "type": "string", "doc": "UUID of the deleted account"},
+    {"name": "accountNumber", "type": "string", "doc": "Unique account number"},
+    {"name": "customerId", "type": "string", "doc": "UUID of the customer who owns the account"},
+    {"name": "balance", "type": "double", "doc": "Balance of the account at deletion time"},
+    {"name": "currency", "type": "string", "doc": "ISO 4217 currency code (e.g. KRW, USD)"},
+    {"name": "status", "type": "string", "doc": "Account status at deletion, e.g. CLOSED"},
+    {"name": "deletedAt", "type": "long", "doc": "Epoch milliseconds when account was deleted"}
+  ]
+}

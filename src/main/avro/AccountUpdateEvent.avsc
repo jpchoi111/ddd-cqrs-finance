@@ -1,0 +1,15 @@
+{
+  "namespace": "com.mycorp.finance.banking.account.infrastructure.messaging.schema",
+  "type": "record",
+  "name": "AccountUpdatedEvent",
+  "doc": "Event published when a bank account is updated.",
+  "fields": [
+    {"name": "accountId", "type": "string", "doc": "UUID of the updated account"},
+    {"name": "accountNumber", "type": "string", "doc": "Unique account number"},
+    {"name": "customerId", "type": "string", "doc": "UUID of the customer who owns the account"},
+    {"name": "balance", "type": "double", "doc": "Current balance of the account"},
+    {"name": "currency", "type": "string", "doc": "ISO 4217 currency code (e.g. USD, EUR)"},
+    {"name": "status", "type": "string", "doc": "Current account status, e.g. ACTIVE"},
+    {"name": "updatedAt", "type": "long", "doc": "Epoch milliseconds when account was updated"}
+  ]
+}

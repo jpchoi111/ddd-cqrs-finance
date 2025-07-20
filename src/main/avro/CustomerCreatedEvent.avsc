@@ -1,0 +1,39 @@
+{
+  "namespace": "com.mycorp.finance.customer.infrastructure.messaging.schema",
+  "type": "record",
+  "name": "CustomerCreatedEvent",
+  "fields": [
+    { "name": "customerId", "type": "string" },
+    { "name": "email", "type": "string" },
+    {
+      "name": "name",
+      "type": {
+        "type": "record",
+        "name": "Name",
+        "fields": [
+          { "name": "firstName", "type": "string" },
+          { "name": "middleName", "type": ["null", "string"], "default": null },
+          { "name": "lastName", "type": "string" }
+        ]
+      }
+    },
+    { "name": "birthDate", "type": "string" },
+    { "name": "phoneNumber", "type": "string" },
+    {
+      "name": "address",
+      "type": {
+        "type": "record",
+        "name": "Address",
+        "fields": [
+          { "name": "street", "type": "string" },
+          { "name": "city", "type": "string" },
+          { "name": "state", "type": "string" },
+          { "name": "postalCode", "type": "string" },
+          { "name": "country", "type": "string" }
+        ]
+      }
+    },
+    { "name": "status", "type": "string" },
+    { "name": "createdAt", "type": "string" }
+  ]
+}

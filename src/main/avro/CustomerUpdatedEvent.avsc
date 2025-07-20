@@ -1,0 +1,43 @@
+{
+  "namespace": "com.mycorp.finance.customer.infrastructure.messaging.schema",
+  "type": "record",
+  "name": "CustomerUpdatedEvent",
+  "fields": [
+    { "name": "customerId", "type": "string" },
+    {
+      "name": "name",
+      "type": ["null",
+        {
+          "type": "record",
+          "name": "Name",
+          "fields": [
+            { "name": "firstName", "type": "string" },
+            { "name": "middleName", "type": ["null", "string"], "default": null },
+            { "name": "lastName", "type": "string" }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "address",
+      "type": ["null",
+        {
+          "type": "record",
+          "name": "Address",
+          "fields": [
+            { "name": "street", "type": "string" },
+            { "name": "city", "type": "string" },
+            { "name": "state", "type": "string" },
+            { "name": "postalCode", "type": "string" },
+            { "name": "country", "type": "string" }
+          ]
+        }
+      ],
+      "default": null
+    },
+    { "name": "phoneNumber", "type": ["null", "string"], "default": null },
+    { "name": "status", "type": ["null", "string"], "default": null },
+    { "name": "updatedAt", "type": "string" }
+  ]
+}

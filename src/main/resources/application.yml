@@ -1,0 +1,62 @@
+spring:
+  profiles:
+    active: default
+
+  datasource:
+    # Command DB (PostgreSQL)
+    command:
+      url: jdbc:postgresql://localhost:5432/command_db
+      username: banking_cmd_user
+      password: 1q2w3e
+      driver-class-name: org.postgresql.Driver
+
+    # Query DB (PostgreSQL)
+    query:
+      url: jdbc:postgresql://localhost:5432/query_db
+      username: banking_query_user
+      password: 1q2w3e
+      driver-class-name: org.postgresql.Driver
+
+    # Auth DB (PostgreSQL)
+    auth:
+      url: jdbc:postgresql://localhost:5432/auth_db
+      username: banking_auth_user
+      password: 1q2w3e
+      driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+
+    properties:
+      schema.registry.url: http://localhost:8081
+      specific.avro.reader: true
+
+    topics:
+      customer-created: customer-created-topic
+      customer-updated: customer-updated-topic
+      customer-deleted: customer-deleted-topic
+      account-created: account-created-topic
+      account-updated: account-updated-topic
+      account-deleted: account-deleted-topic
+
+    consumer-groups:
+      customer: customer-query-group
+      account: account-query-group
+
+jwt:
+  secret-key: F9DJ93dj39sdf@93djf9sdD393djf!D3jfdfsl
+  expiration: 3600000 # 1 hour in milliseconds

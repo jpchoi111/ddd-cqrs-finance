@@ -1,0 +1,9 @@
+{
+  "namespace": "com.mycorp.finance.customer.infrastructure.messaging.schema",
+  "type": "record",
+  "name": "CustomerDeletedEvent",
+  "fields": [
+    { "name": "customerId", "type": "string" },
+    { "name": "deletedAt", "type": "string" }
+  ]
+}
