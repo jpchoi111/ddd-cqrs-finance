@@ -39,7 +39,6 @@ public class Money {
             throw new IllegalArgumentException("Amount and currency must not be null");
         }
         this.amount = amount.setScale(2, RoundingMode.HALF_EVEN);
-        //this.amount = amount.setScale(2, BigDecimal.ROUND_HALF_EVEN);
         this.currencyCode = currency.getCurrencyCode();
     }
 
