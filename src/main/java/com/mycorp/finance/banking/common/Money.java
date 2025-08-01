@@ -5,6 +5,7 @@ import jakarta.persistence.Embeddable;
 import lombok.Getter;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Currency;
 import java.util.Objects;
 
@@ -37,7 +38,8 @@ public class Money {
         if (amount == null || currency == null) {
             throw new IllegalArgumentException("Amount and currency must not be null");
         }
-        this.amount = amount.setScale(2, BigDecimal.ROUND_HALF_EVEN);
+        this.amount = amount.setScale(2, RoundingMode.HALF_EVEN);
+        //this.amount = amount.setScale(2, BigDecimal.ROUND_HALF_EVEN);
         this.currencyCode = currency.getCurrencyCode();
     }
 
